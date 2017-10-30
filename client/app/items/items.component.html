@@ -1,0 +1,71 @@
+<section style="margin-top: 30px;">
+    {{ alerts | json }}
+    <form class="form-inline">
+        <div class="form-group" ng-hide="showAddView">
+            <label>Select an existing item to edit</label>
+            <select class="form-control" ng-model="selectedItem" ng-change="EditItem()">
+                <option value="">Select an item</option>
+                <option ng-repeat="item in items | orderBy:'description'" value="{{ item }}">{{ item.description }}</option>
+            </select>
+        </div>
+        <div class="form-group" ng-hide="showAddView">
+            Or, <button class="btn btn-primary" ng-click="AddItem()">Add a new item</button>
+        </div>
+    </form>
+
+    <!-- Edit View -->
+    <div class="row" ng-show="showEditView">
+        <form class="col-md-4">
+            <div class="form-group">
+                <label>Description: </label>
+                <input class="form-control" type="text" ng-model="selectedItem.description" placeholder="Description" />
+            </div>
+            <div class="form-group">
+                <label>Unit of measure: </label>
+                <input class="form-control" type="text" ng-model="selectedItem.unitOfMeasure" placeholder="Unit of measure" />
+            </div>
+            <div class="form-group">
+                <label>Calories: </label>
+                <input class="form-control" type="text" ng-model="selectedItem.calories" placeholder="Calories" />
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="btn btn-primary" ng-click="Update()">Update</button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-danger" ng-click="Delete()">Delete</button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-warning" ng-click="CancelUpdate()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Add View -->
+    <div class="row" ng-show="showAddView">
+            <form class="col-md-4">
+                <div class="form-group">
+                    <label>Description: </label>
+                    <input class="form-control" type="text" ng-model="addedItem.description" placeholder="Description" />
+                </div>
+                <div class="form-group">
+                    <label>Unit of measure: </label>
+                    <input class="form-control" type="text" ng-model="addedItem.unitOfMeasure" placeholder="Unit of measure" />
+                </div>
+                <div class="form-group">
+                    <label>Calories: </label>
+                    <input class="form-control" type="text" ng-model="addedItem.calories" placeholder="Calories" />
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <button class="btn btn-primary" ng-click="Add()">Add</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" ng-click="CancelAdd()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+</section>

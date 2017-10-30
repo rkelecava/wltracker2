@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Wltracker</title>
+        <base href="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/bower_components/angular-xeditable/dist/css/xeditable.css" />
+        <link rel="stylesheet" href="styles.css" />
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+            <script src="/bower_components/respond/dest/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <div class="container" ng-app="wltracker">
+            <div class="page-header">
+                <h1>Wltracker</h1>
+            </div>
+            <ul class="nav nav-tabs">
+                <li><a href="/calendar">Calendar</a></li>
+                <li><a href="/items">Manage Items</a></li>
+            </ul>
+            <ui-view></ui-view>
+        </div>
+
+        <!-- jQuery -->
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Bootstrap JS -->
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Angular JS -->
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <!-- Angular UI Router -->
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="/bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+
+        <!-- Bootstrap JS -->
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+        <!-- APP -->
+        <script src="/app/app.module.js"></script>
+        <script src="/app/items.service.js"></script>
+        <script src="/app/weighin.service.js"></script>
+        <script src="/app/entry.service.js"></script>
+        <script src="/app/calendar/calendar.component.js"></script>
+        <script src="/app/items/items.component.js"></script>
+        <script src="/app/app-routing.module.js"></script>
+
+        <script>
+            function getPos(el) {
+            // yay readability
+            for (var lx=0, ly=0; el != null; lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+                return {x: lx,y: ly};
+            }
+        </script>
+
+    </body>
+</html>
